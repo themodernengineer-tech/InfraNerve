@@ -1,10 +1,10 @@
-# ⚡ InfraNerve
-
 <div align="center">
+
+# ⚡ InfraNerve
 
 ### **The Systems Behind Intelligence**
 
-**AI Infrastructure • NVIDIA GPUs • CUDA • Networking • Distributed Computing • Kubernetes • AI Operations**
+**AI Infrastructure • NVIDIA GPUs • CUDA • Networking • Distributed Computing  • AI Operations**
 
 <br>
 
@@ -33,184 +33,153 @@
 
 # 🧠 What is InfraNerve?
 
-Modern AI is often discussed through models:
+<div align="center">
 
-**Transformers. LLMs. Diffusion Models. Neural Networks.**
+### **Models create intelligence. Infrastructure makes it usable.**
 
-But underneath every model exists an enormous engineering system.
+</div>
 
-GPUs execute the computation.
+<table>
+<tr>
+<td width="33%" valign="top">
 
-Memory feeds the accelerators.
+### ⚡ Compute
 
-High-speed networks synchronize distributed workloads.
+GPUs, CPUs, CUDA, Tensor Cores, memory systems, and accelerated computing.
 
-Storage systems continuously supply training data.
+</td>
+<td width="33%" valign="top">
 
-Containers package applications.
+### 🌐 Connect
 
-Kubernetes schedules workloads.
+High-speed networking, RDMA, InfiniBand, NVLink, NVSwitch, and distributed communication.
 
-Observability systems monitor infrastructure health.
+</td>
+<td width="33%" valign="top">
 
-Engineers keep the entire platform operational.
+### 🛠️ Operate
 
-**InfraNerve is my learning laboratory for understanding that system.**
+Containers, Kubernetes, monitoring, reliability, troubleshooting, and production operations.
 
-This repository documents my journey through **AI Infrastructure & Operations**, with a strong focus on NVIDIA accelerated computing and the technologies used to design, operate, monitor, optimize, and scale modern AI systems.
+</td>
+</tr>
+</table>
+
+**InfraNerve** is my structured learning repository for understanding the engineering systems beneath modern AI.
+
+Rather than focusing on model theory alone, this repository explores the infrastructure required to **run, scale, connect, monitor, secure, optimize, and operate AI workloads in production**.
+
+The emphasis is on developing a systems-level understanding of:
+
+> **Compute → Memory → Storage → Networking → Clusters → Orchestration → Operations → Deployment**
 
 ---
 
-# 🏗️ The AI Infrastructure Stack
+# 🏗️ AI Infrastructure Architecture
+
+Instead of treating infrastructure as a single stack, I view it as several interconnected engineering planes.
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│                      AI APPLICATIONS                         │
-│     LLMs • Computer Vision • GenAI • RAG • AI Agents        │
-├──────────────────────────────────────────────────────────────┤
-│                      AI DEPLOYMENT                           │
-│       Model Serving • Triton • NIM • Autoscaling            │
-├──────────────────────────────────────────────────────────────┤
-│                      AI OPERATIONS                           │
-│     Monitoring • Logging • Health • Troubleshooting          │
-├──────────────────────────────────────────────────────────────┤
-│                     ORCHESTRATION                            │
-│        Kubernetes • GPU Scheduling • Containers              │
-├──────────────────────────────────────────────────────────────┤
-│                   DISTRIBUTED COMPUTE                        │
-│    NCCL • Parallelism • Distributed Training • Checkpoints   │
-├──────────────────────────────────────────────────────────────┤
-│                       NETWORKING                             │
-│   InfiniBand • Ethernet • RDMA • NVLink • NVSwitch          │
-├──────────────────────────────────────────────────────────────┤
-│                   COMPUTE & MEMORY                           │
-│      GPU • CPU • Tensor Cores • HBM • CUDA                  │
-├──────────────────────────────────────────────────────────────┤
-│                        STORAGE                               │
-│       NVMe • Object Storage • Distributed Storage • GDS      │
-├──────────────────────────────────────────────────────────────┤
-│                      DATA CENTER                             │
-│      Servers • Racks • Power • Cooling • AI Clusters         │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                         APPLICATION PLANE                            │
+│                                                                      │
+│       LLMs • RAG • Computer Vision • GenAI • AI Services            │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                          SERVING PLANE                               │
+│                                                                      │
+│      Model Serving • Triton • NIM • Batch • Real-Time Inference     │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                        ORCHESTRATION PLANE                           │
+│                                                                      │
+│        Containers • Kubernetes • Scheduling • Autoscaling           │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                         COMPUTE PLANE                                │
+│                                                                      │
+│       CPU • GPU • CUDA • Tensor Cores • HBM • GPU Memory            │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                ┌──────────────┼──────────────┐
+                │              │              │
+                ▼              ▼              ▼
+       ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+       │   STORAGE    │ │  NETWORKING  │ │ DISTRIBUTED  │
+       │              │ │              │ │   COMPUTE    │
+       │ NVMe         │ │ Ethernet     │ │ NCCL         │
+       │ Object       │ │ InfiniBand   │ │ Parallelism  │
+       │ Distributed  │ │ RDMA         │ │ Checkpoints  │
+       │ GDS          │ │ NVLink       │ │ Sync         │
+       └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
+              │                │                │
+              └────────────────┼────────────────┘
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                        OPERATIONS PLANE                              │
+│                                                                      │
+│ Monitoring • Logging • Security • Reliability • Troubleshooting     │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
-InfraNerve is designed to study this stack from the bottom up.
+This architecture is the core mental model behind InfraNerve:
+
+**AI infrastructure is not one technology. It is a system of interdependent layers.**
 
 ---
 
 # 🗺️ Learning Map
 
-## **25 Modules • 192 Topics • One Infrastructure Journey**
+## **23 Modules • 172 Topics • One Infrastructure Journey**
 
 |  #  | Module                             | Core Question                                              | Status |
 | :-: | ---------------------------------- | ---------------------------------------------------------- | :----: |
-|  01 | 🤖 AI Fundamentals                 | What workloads are we building infrastructure for?         |    ⬜   |
-|  02 | 🧠 AI Workloads                    | How do different AI workloads behave?                      |    ⬜   |
-|  03 | 🏗️ AI Infrastructure Fundamentals | What makes AI infrastructure different?                    |    ⬜   |
-|  04 | 🏭 AI Factories                    | How is AI produced at data-center scale?                   |    ⬜   |
-|  05 | 🖥️ Computer Architecture          | What happens beneath AI software?                          |    ⬜   |
-|  06 | ⚡ CPU vs GPU                       | Why did GPUs become the engine of AI?                      |    ⬜   |
-|  07 | 🟢 NVIDIA GPU Architecture         | How are NVIDIA accelerators designed?                      |    ⬜   |
-|  08 | 🧩 CUDA Ecosystem                  | How does software access GPU compute?                      |    ⬜   |
-|  09 | 💾 Memory Systems                  | How does data reach compute efficiently?                   |    ⬜   |
-|  10 | 🗄️ Storage for AI                 | How do we feed massive datasets to AI systems?             |    ⬜   |
-|  11 | 🌐 AI Networking                   | How do distributed AI systems communicate?                 |    ⬜   |
-|  12 | 🔗 NVIDIA Networking               | How are GPU clusters interconnected?                       |    ⬜   |
-|  13 | 🧮 Distributed AI Training         | How does training scale beyond one GPU?                    |    ⬜   |
-|  14 | 🖥️ AI Servers                     | What does an AI compute node look like?                    |    ⬜   |
-|  15 | 🏢 AI Clusters                     | How do servers become large AI systems?                    |    ⬜   |
-|  16 | 📦 Containers & Virtualization     | How are AI workloads packaged and scheduled?               |    ⬜   |
-|  17 | 🧰 AI Software Stack               | What software turns hardware into an AI platform?          |    ⬜   |
-|  18 | 📡 AI Operations                   | How do we operate AI infrastructure?                       |    ⬜   |
-|  19 | 📈 AI Performance                  | Where does AI infrastructure lose performance?             |    ⬜   |
-|  20 | 🔐 AI Security                     | How do we secure shared AI infrastructure?                 |    ⬜   |
-|  21 | 🏭 AI Data Centers                 | How is AI infrastructure deployed at scale?                |    ⬜   |
-|  22 | ☁️ AI Cloud Infrastructure         | How does AI infrastructure extend into cloud environments? |    ⬜   |
-|  23 | 🟢 NVIDIA AI Enterprise            | What software operates enterprise NVIDIA AI?               |    ⬜   |
-|  24 | 🚀 AI Deployment                   | How do trained models become production services?          |    ⬜   |
-|  25 | 🛠️ Troubleshooting & Operations   | How do we diagnose infrastructure when it fails?           |    ⬜   |
+|  01 | 🏗️ AI Infrastructure Fundamentals | What makes AI infrastructure different?                    |    ⬜   |
+|  02 | 🏭 AI Factories                    | How is AI produced at data-center scale?                   |    ⬜   |
+|  03 | 🖥️ Computer Architecture          | What happens beneath AI software?                          |    ⬜   |
+|  04 | ⚡ CPU vs GPU                       | Why did GPUs become the engine of AI?                      |    ⬜   |
+|  05 | 🟢 NVIDIA GPU Architecture         | How are NVIDIA accelerators designed?                      |    ⬜   |
+|  06 | 🧩 CUDA Ecosystem                  | How does software access GPU compute?                      |    ⬜   |
+|  07 | 💾 Memory Systems                  | How does data reach compute efficiently?                   |    ⬜   |
+|  08 | 🗄️ Storage for AI                 | How do we feed massive datasets to AI systems?             |    ⬜   |
+|  09 | 🌐 AI Networking                   | How do distributed AI systems communicate?                 |    ⬜   |
+|  10 | 🔗 NVIDIA Networking               | How are GPU clusters interconnected?                       |    ⬜   |
+|  11 | 🧮 Distributed AI Training         | How does training scale beyond one GPU?                    |    ⬜   |
+|  12 | 🖥️ AI Servers                     | What does an AI compute node look like?                    |    ⬜   |
+|  13 | 🏢 AI Clusters                     | How do servers become large AI systems?                    |    ⬜   |
+|  14 | 📦 Containers & Virtualization     | How are AI workloads packaged and scheduled?               |    ⬜   |
+|  15 | 🧰 AI Software Stack               | What software turns hardware into an AI platform?          |    ⬜   |
+|  16 | 📡 AI Operations                   | How do we operate AI infrastructure?                       |    ⬜   |
+|  17 | 📈 AI Performance                  | Where does AI infrastructure lose performance?             |    ⬜   |
+|  18 | 🔐 AI Security                     | How do we secure shared AI infrastructure?                 |    ⬜   |
+|  19 | 🏭 AI Data Centers                 | How is AI infrastructure deployed at scale?                |    ⬜   |
+|  20 | ☁️ AI Cloud Infrastructure         | How does AI infrastructure extend into cloud environments? |    ⬜   |
+|  21 | 🟢 NVIDIA AI Enterprise            | What software operates enterprise NVIDIA AI?               |    ⬜   |
+|  22 | 🚀 AI Deployment                   | How do trained models become production services?          |    ⬜   |
+|  23 | 🛠️ Troubleshooting & Operations   | How do we diagnose infrastructure when it fails?           |    ⬜   |
 
 > **Legend:** ⬜ Planned · 🟡 Learning · 🧪 Lab in Progress · ✅ Completed
 
 ---
 
-# 01 — 🤖 AI Fundamentals
-
-Before operating AI infrastructure, I need to understand the workloads that infrastructure exists to support.
+# 01 — 🏗️ AI Infrastructure Fundamentals
 
 ### Learning Topics
 
-1. What is Artificial Intelligence (AI)?
-2. History and Evolution of AI
-3. Types of AI
-
-   * Narrow AI
-   * General AI
-   * Super AI
-4. Machine Learning
-5. Deep Learning
-6. Generative AI
-7. Large Language Models (LLMs)
-8. Computer Vision
-9. Natural Language Processing (NLP)
-10. Reinforcement Learning
-11. AI Workflow Overview
-
-### Infrastructure Lens
-
-The objective is not to duplicate my ML or Deep Learning studies.
-
-It is to understand how different AI workloads translate into different requirements for:
-
-**Compute • Memory • Storage • Networking • Deployment**
-
----
-
-# 02 — 🧠 Understanding AI Workloads
-
-Different AI workloads create radically different infrastructure requirements.
-
-### Learning Topics
-
-12. AI Training vs AI Inference
-13. Supervised Learning
-14. Unsupervised Learning
-15. Self-Supervised Learning
-16. Transfer Learning
-17. Fine-tuning
-18. Retrieval-Augmented Generation (RAG)
-19. AI Pipelines
-20. AI Model Lifecycle
-
-### Training vs Inference
-
-```text
-TRAINING                         INFERENCE
-   │                                │
-   ▼                                ▼
-Heavy Compute                   Low Latency
-   │                                │
-Large GPU Clusters              Efficient Serving
-   │                                │
-High Bandwidth                  High Availability
-   │                                │
-Long Running Jobs               Continuous Requests
-```
-
----
-
-# 03 — 🏗️ AI Infrastructure Fundamentals
-
-### Learning Topics
-
-21. What is AI Infrastructure?
-22. Why AI Infrastructure is Different from Traditional IT
-23. Components of AI Infrastructure
-24. AI Compute
-25. AI Storage
-26. AI Networking
-27. AI Software Stack
-28. AI Operations
+1. What is AI Infrastructure?
+2. Why AI Infrastructure is Different from Traditional IT
+3. Components of AI Infrastructure
+4. AI Compute
+5. AI Storage
+6. AI Networking
+7. AI Software Stack
+8. AI Operations
 
 ### Systems View
 
@@ -232,19 +201,19 @@ Long Running Jobs               Continuous Requests
 
 ---
 
-# 04 — 🏭 AI Factories
+# 02 — 🏭 AI Factories
 
 AI factories treat infrastructure as a system for continuously transforming data into intelligence.
 
 ### Learning Topics
 
-29. What is an AI Factory?
-30. Why AI Factories Exist
-31. Components of AI Factory
-32. AI Factory Architecture
-33. AI Factory Workflow
-34. AI Factory vs Traditional Data Center
-35. AI Factory Scaling
+9. What is an AI Factory?
+10. Why AI Factories Exist
+11. Components of AI Factory
+12. AI Factory Architecture
+13. AI Factory Workflow
+14. AI Factory vs Traditional Data Center
+15. AI Factory Scaling
 
 ### Core Flow
 
@@ -266,36 +235,36 @@ AI SERVICES
 
 ---
 
-# 05 — 🖥️ Computer Architecture
+# 03 — 🖥️ Computer Architecture
 
 To understand GPU infrastructure, I first need to understand the machine itself.
 
 ### Learning Topics
 
-36. What is a CPU?
-37. CPU Architecture
-38. CPU Cores
-39. CPU Cache
-40. Memory Hierarchy
-41. What is a GPU?
-42. GPU Architecture
-43. CUDA Cores
-44. Tensor Cores
-45. Streaming Multiprocessors
-46. GPU Memory
+16. What is a CPU?
+17. CPU Architecture
+18. CPU Cores
+19. CPU Cache
+20. Memory Hierarchy
+21. What is a GPU?
+22. GPU Architecture
+23. CUDA Cores
+24. Tensor Cores
+25. Streaming Multiprocessors
+26. GPU Memory
 
 ---
 
-# 06 — ⚡ CPU vs GPU
+# 04 — ⚡ CPU vs GPU
 
 ### Learning Topics
 
-47. CPU vs GPU
-48. Parallel Computing
-49. SIMD
-50. MIMD
-51. GPU Acceleration
-52. Why GPUs are Better for AI
+27. CPU vs GPU
+28. Parallel Computing
+29. SIMD
+30. MIMD
+31. GPU Acceleration
+32. Why GPUs are Better for AI
 
 ### Mental Model
 
@@ -322,19 +291,19 @@ AI Workloads
 
 ---
 
-# 07 — 🟢 NVIDIA GPU Architecture
+# 05 — 🟢 NVIDIA GPU Architecture
 
 This module moves from generic GPU concepts into NVIDIA accelerator architecture.
 
 ### Learning Topics
 
-53. NVIDIA GPU Generations
-54. CUDA Architecture
-55. Hopper Architecture
-56. Blackwell Architecture
-57. Tensor Core Generations
-58. NVENC
-59. NVDEC
+33. NVIDIA GPU Generations
+34. CUDA Architecture
+35. Hopper Architecture
+36. Blackwell Architecture
+37. Tensor Core Generations
+38. NVENC
+39. NVDEC
 
 ### Focus
 
@@ -342,21 +311,21 @@ This module moves from generic GPU concepts into NVIDIA accelerator architecture
 
 ---
 
-# 08 — 🧩 CUDA Ecosystem
+# 06 — 🧩 CUDA Ecosystem
 
 CUDA is the software bridge between applications and NVIDIA GPU compute.
 
 ### Learning Topics
 
-60. CUDA Overview
-61. CUDA Toolkit
-62. CUDA Runtime
-63. CUDA Driver
-64. CUDA Libraries
-65. cuBLAS
-66. cuDNN
-67. TensorRT
-68. NCCL
+40. CUDA Overview
+41. CUDA Toolkit
+42. CUDA Runtime
+43. CUDA Driver
+44. CUDA Libraries
+45. cuBLAS
+46. cuDNN
+47. TensorRT
+48. NCCL
 
 ### CUDA Stack
 
@@ -379,21 +348,21 @@ PyTorch / TensorFlow / AI Application
 
 ---
 
-# 09 — 💾 Memory Systems
+# 07 — 💾 Memory Systems
 
 Compute performance is limited if data cannot reach compute efficiently.
 
 ### Learning Topics
 
-69. RAM
-70. VRAM
-71. HBM Memory
-72. DDR
-73. GDDR
-74. Memory Bandwidth
-75. Shared Memory
-76. Unified Memory
-77. NUMA
+49. RAM
+50. VRAM
+51. HBM Memory
+52. DDR
+53. GDDR
+54. Memory Bandwidth
+55. Shared Memory
+56. Unified Memory
+57. NUMA
 
 ### Focus
 
@@ -401,20 +370,20 @@ Compute performance is limited if data cannot reach compute efficiently.
 
 ---
 
-# 10 — 🗄️ Storage for AI
+# 08 — 🗄️ Storage for AI
 
 AI systems can consume massive datasets and checkpoints.
 
 ### Learning Topics
 
-78. AI Storage Requirements
-79. NVMe
-80. SSD
-81. HDD
-82. Parallel File Systems
-83. Object Storage
-84. Distributed Storage
-85. GPUDirect Storage
+58. AI Storage Requirements
+59. NVMe
+60. SSD
+61. HDD
+62. Parallel File Systems
+63. Object Storage
+64. Distributed Storage
+65. GPUDirect Storage
 
 ### Data Path
 
@@ -439,21 +408,21 @@ COMPUTE
 
 ---
 
-# 11 — 🌐 AI Networking
+# 09 — 🌐 AI Networking
 
 Distributed AI turns networking into part of the compute system.
 
 ### Learning Topics
 
-86. Why AI Needs Fast Networking
-87. Ethernet
-88. InfiniBand
-89. RoCE
-90. RDMA
-91. Network Latency
-92. Bandwidth
-93. Switches
-94. Spine-Leaf Architecture
+66. Why AI Needs Fast Networking
+67. Ethernet
+68. InfiniBand
+69. RoCE
+70. RDMA
+71. Network Latency
+72. Bandwidth
+73. Switches
+74. Spine-Leaf Architecture
 
 ### Core Question
 
@@ -461,17 +430,17 @@ Distributed AI turns networking into part of the compute system.
 
 ---
 
-# 12 — 🔗 NVIDIA Networking
+# 10 — 🔗 NVIDIA Networking
 
 ### Learning Topics
 
-95. Spectrum Ethernet
-96. Quantum InfiniBand
-97. BlueField DPU
-98. ConnectX NIC
-99. NVLink
-100. NVSwitch
-101. GPUDirect RDMA
+75. Spectrum Ethernet
+76. Quantum InfiniBand
+77. BlueField DPU
+78. ConnectX NIC
+79. NVLink
+80. NVSwitch
+81. GPUDirect RDMA
 
 ### Interconnect View
 
@@ -498,7 +467,7 @@ Remote Compute Node
 
 ---
 
-# 13 — 🧮 Distributed AI Training
+# 11 — 🧮 Distributed AI Training
 
 One GPU eventually becomes insufficient.
 
@@ -506,13 +475,13 @@ Then the problem becomes distributed systems engineering.
 
 ### Learning Topics
 
-102. Why Distributed Training
-103. Data Parallelism
-104. Tensor Parallelism
-105. Pipeline Parallelism
-106. Expert Parallelism
-107. Distributed Checkpointing
-108. Gradient Synchronization
+82. Why Distributed Training
+83. Data Parallelism
+84. Tensor Parallelism
+85. Pipeline Parallelism
+86. Expert Parallelism
+87. Distributed Checkpointing
+88. Gradient Synchronization
 
 ### Distributed View
 
@@ -533,18 +502,18 @@ Then the problem becomes distributed systems engineering.
 
 ---
 
-# 14 — 🖥️ AI Servers
+# 12 — 🖥️ AI Servers
 
 ### Learning Topics
 
-109. What is an AI Server?
-110. DGX Systems
-111. HGX Systems
-112. MGX Architecture
-113. Grace CPU
-114. Grace Hopper
-115. GB200
-116. Rack Architecture
+89. What is an AI Server?
+90. DGX Systems
+91. HGX Systems
+92. MGX Architecture
+93. Grace CPU
+94. Grace Hopper
+95. GB200
+96. Rack Architecture
 
 ### Scale Perspective
 
@@ -563,17 +532,17 @@ Cluster
 
 ---
 
-# 15 — 🏢 AI Clusters
+# 13 — 🏢 AI Clusters
 
 ### Learning Topics
 
-117. What is an AI Cluster?
-118. Cluster Architecture
-119. Rack Design
-120. Cooling
-121. Power Distribution
-122. Scaling Clusters
-123. High Availability
+97. What is an AI Cluster?
+98. Cluster Architecture
+99. Rack Design
+100. Cooling
+101. Power Distribution
+102. Scaling Clusters
+103. High Availability
 
 ### Scaling AI
 
@@ -595,17 +564,17 @@ At this scale, AI becomes a **power, cooling, networking, reliability, and sched
 
 ---
 
-# 16 — 📦 Containers & Virtualization
+# 14 — 📦 Containers & Virtualization
 
 ### Learning Topics
 
-124. Virtual Machines
-125. Docker
-126. Kubernetes
-127. GPU Containers
-128. NVIDIA Container Toolkit
-129. GPU Scheduling
-130. MIG
+104. Virtual Machines
+105. Docker
+106. Kubernetes
+107. GPU Containers
+108. NVIDIA Container Toolkit
+109. GPU Scheduling
+110. MIG
 
 ### Workload Path
 
@@ -627,18 +596,18 @@ NVIDIA GPU
 
 ---
 
-# 17 — 🧰 AI Software Stack
+# 15 — 🧰 AI Software Stack
 
 ### Learning Topics
 
-131. Linux Basics
-132. NVIDIA Drivers
-133. CUDA Installation
-134. Python Environment
-135. PyTorch
-136. TensorFlow
-137. Jupyter
-138. NVIDIA NGC
+111. Linux Basics
+112. NVIDIA Drivers
+113. CUDA Installation
+114. Python Environment
+115. PyTorch
+116. TensorFlow
+117. Jupyter
+118. NVIDIA NGC
 
 ### Software Layers
 
@@ -660,7 +629,7 @@ GPU HARDWARE
 
 ---
 
-# 18 — 📡 AI Operations
+# 16 — 📡 AI Operations
 
 Building infrastructure is only half the problem.
 
@@ -668,14 +637,14 @@ The other half is keeping it healthy.
 
 ### Learning Topics
 
-139. AI Infrastructure Operations
-140. Monitoring GPUs
-141. GPU Utilization
-142. GPU Health
-143. Cluster Monitoring
-144. Alerting
-145. Logging
-146. Troubleshooting
+119. AI Infrastructure Operations
+120. Monitoring GPUs
+121. GPU Utilization
+122. GPU Health
+123. Cluster Monitoring
+124. Alerting
+125. Logging
+126. Troubleshooting
 
 ### Operations Loop
 
@@ -699,18 +668,18 @@ OPTIMIZE
 
 ---
 
-# 19 — 📈 AI Performance
+# 17 — 📈 AI Performance
 
 ### Learning Topics
 
-147. GPU Utilization
-148. Throughput
-149. Latency
-150. FLOPS
-151. TFLOPS
-152. Memory Bottlenecks
-153. Communication Bottlenecks
-154. Performance Optimization
+127. GPU Utilization
+128. Throughput
+129. Latency
+130. FLOPS
+131. TFLOPS
+132. Memory Bottlenecks
+133. Communication Bottlenecks
+134. Performance Optimization
 
 ### Performance Model
 
@@ -731,17 +700,17 @@ OPTIMIZE
 
 ---
 
-# 20 — 🔐 AI Security
+# 18 — 🔐 AI Security
 
 ### Learning Topics
 
-155. AI Infrastructure Security
-156. Secure Boot
-157. Encryption
-158. Authentication
-159. RBAC
-160. Multi-Tenant Security
-161. Data Protection
+135. AI Infrastructure Security
+136. Secure Boot
+137. Encryption
+138. Authentication
+139. RBAC
+140. Multi-Tenant Security
+141. Data Protection
 
 ### Security Layers
 
@@ -763,30 +732,30 @@ Application
 
 ---
 
-# 21 — 🏭 AI Data Centers
+# 19 — 🏭 AI Data Centers
 
 ### Learning Topics
 
-162. Modern AI Data Centers
-163. Hyperscale AI
-164. Enterprise AI
-165. Edge AI
-166. Hybrid AI
-167. Cloud AI
+142. Modern AI Data Centers
+143. Hyperscale AI
+144. Enterprise AI
+145. Edge AI
+146. Hybrid AI
+147. Cloud AI
 
 This module explores how infrastructure architecture changes across different deployment environments and scales.
 
 ---
 
-# 22 — ☁️ AI Cloud Infrastructure
+# 20 — ☁️ AI Cloud Infrastructure
 
 ### Learning Topics
 
-168. NVIDIA DGX Cloud
-169. Private AI
-170. Public Cloud AI
-171. Hybrid Cloud
-172. AI-as-a-Service
+148. NVIDIA DGX Cloud
+149. Private AI
+150. Public Cloud AI
+151. Hybrid Cloud
+152. AI-as-a-Service
 
 ### Deployment Spectrum
 
@@ -808,18 +777,18 @@ AI-AS-A-SERVICE
 
 ---
 
-# 23 — 🟢 NVIDIA AI Enterprise
+# 21 — 🟢 NVIDIA AI Enterprise
 
 This module explores NVIDIA's enterprise software ecosystem for accelerated AI workloads.
 
 ### Learning Topics
 
-173. NVIDIA AI Enterprise
-174. NVIDIA NIM
-175. NVIDIA NeMo
-176. NVIDIA RAPIDS
-177. NVIDIA Triton Inference Server
-178. NVIDIA Base Command
+153. NVIDIA AI Enterprise
+154. NVIDIA NIM
+155. NVIDIA NeMo
+156. NVIDIA RAPIDS
+157. NVIDIA Triton Inference Server
+158. NVIDIA Base Command
 
 ### Enterprise Stack
 
@@ -840,16 +809,16 @@ ACCELERATED INFRASTRUCTURE
 
 ---
 
-# 24 — 🚀 AI Deployment
+# 22 — 🚀 AI Deployment
 
 ### Learning Topics
 
-179. Model Serving
-180. Batch Inference
-181. Real-Time Inference
-182. Edge Deployment
-183. Autoscaling
-184. Production AI
+159. Model Serving
+160. Batch Inference
+161. Real-Time Inference
+162. Edge Deployment
+163. Autoscaling
+164. Production AI
 
 ### From Model to Service
 
@@ -880,20 +849,20 @@ PRODUCTION AI
 
 ---
 
-# 25 — 🛠️ Troubleshooting & Operations
+# 23 — 🛠️ Troubleshooting & Operations
 
 The final module turns infrastructure knowledge into operational reasoning.
 
 ### Learning Topics
 
-185. GPU Failures
-186. Driver Issues
-187. CUDA Errors
-188. Memory Issues
-189. Network Bottlenecks
-190. Storage Bottlenecks
-191. Cluster Failures
-192. Performance Debugging
+165. GPU Failures
+166. Driver Issues
+167. CUDA Errors
+168. Memory Issues
+169. Network Bottlenecks
+170. Storage Bottlenecks
+171. Cluster Failures
+172. Performance Debugging
 
 ### Troubleshooting Framework
 
@@ -967,80 +936,11 @@ Each topic may include:
 * 📘 Concept notes
 * 🏗️ Architecture diagrams
 * 💻 Commands and configurations
-* 🧪 Hands-on labs
+* 🧪 Hands-on experiments
 * 📊 Performance observations
 * 🛠️ Troubleshooting exercises
 * 🔍 Production considerations
 * 📚 References
-
----
-
-# 🔬 Planned Hands-On Labs
-
-## 🟢 GPU & CUDA
-
-* Inspect NVIDIA GPU architecture and capabilities
-* Work with `nvidia-smi`
-* Explore CUDA runtime and driver relationships
-* Monitor GPU memory and utilization
-* Run CUDA-enabled containers
-
----
-
-## 🐳 Containers
-
-* Build GPU-enabled Docker images
-* Configure NVIDIA Container Toolkit
-* Run PyTorch workloads inside containers
-* Explore GPU resource isolation
-
----
-
-## ☸️ Kubernetes
-
-* Deploy AI workloads to Kubernetes
-* Understand GPU device discovery
-* Schedule GPU workloads
-* Experiment with requests and limits
-* Explore MIG-backed workloads
-
----
-
-## 📊 Observability
-
-* Monitor GPU utilization
-* Collect infrastructure metrics
-* Build GPU dashboards
-* Create infrastructure alerts
-* Analyze resource bottlenecks
-
----
-
-## 🧮 Distributed AI
-
-* Explore multi-GPU training
-* Study NCCL communication
-* Compare parallelism strategies
-* Analyze communication overhead
-
----
-
-## 🚀 Inference
-
-* Serve models using NVIDIA Triton
-* Compare batch and real-time inference
-* Measure latency and throughput
-* Experiment with autoscaling
-
----
-
-## 🛠️ Troubleshooting
-
-* Diagnose CUDA compatibility issues
-* Investigate GPU memory exhaustion
-* Identify compute bottlenecks
-* Identify network bottlenecks
-* Analyze failed workloads
 
 ---
 
@@ -1058,38 +958,6 @@ Each topic may include:
 | Distributed Systems  | NVLink / NVSwitch     | Reliability           |
 | AI Clusters          | RDMA / GPUDirect      | Capacity Awareness    |
 | Cloud Infrastructure | TensorRT / Triton     | Production Operations |
-
-</div>
-
----
-
-# 🧰 Technology Landscape
-
-<div align="center">
-
-### Systems & Infrastructure
-
-<img src="https://skillicons.dev/icons?i=linux,bash,docker,kubernetes,terraform" />
-
-<br><br>
-
-### AI & Accelerated Computing
-
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/NVIDIA-GPU-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
-<img src="https://img.shields.io/badge/CUDA-Toolkit-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
-<img src="https://img.shields.io/badge/NCCL-Distributed%20Communication-76B900?style=for-the-badge" />
-<img src="https://img.shields.io/badge/TensorRT-Inference-76B900?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Triton-Inference%20Server-76B900?style=for-the-badge" />
-
-<br><br>
-
-### Operations & Observability
-
-<img src="https://skillicons.dev/icons?i=prometheus,grafana,git,githubactions" />
 
 </div>
 
@@ -1175,8 +1043,8 @@ The goal is to understand **everything required to make AI work at scale**.
 <br>
 
 <img src="https://img.shields.io/badge/STATUS-LEARNING%20IN%20PUBLIC-76B900?style=for-the-badge" />
-<img src="https://img.shields.io/badge/MODULES-25-blue?style=for-the-badge" />
-<img src="https://img.shields.io/badge/TOPICS-192-purple?style=for-the-badge" />
+<img src="https://img.shields.io/badge/MODULES-23-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/TOPICS-172-purple?style=for-the-badge" />
 
 <br><br>
 
