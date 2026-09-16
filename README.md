@@ -2,30 +2,42 @@
 
 # ⚡ InfraNerve
 
-### **The Systems Behind Intelligence**
+### `AI INFRASTRUCTURE // ACCELERATED COMPUTE // OPERATIONS`
 
-**AI Infrastructure • NVIDIA GPUs • CUDA • Networking • Distributed Computing  • AI Operations**
+**Studying the systems that make AI run.**
 
-<br>
-
-> *Studying what happens beneath the model — from silicon and GPU memory to distributed clusters and production AI systems.*
+`GPU` · `CUDA` · `Memory` · `Storage` · `Networking` · `Distributed Systems` · `Kubernetes` · `AI Operations`
 
 <br>
 
-<img src="https://img.shields.io/badge/AI-Infrastructure-76B900?style=for-the-badge" />
-<img src="https://img.shields.io/badge/NVIDIA-Learning%20Track-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
+```text
+MODEL
+  │
+  ▼
+COMPUTE ──► MEMORY ──► NETWORK ──► CLUSTER ──► PLATFORM ──► PRODUCTION
+```
+
+<br>
+
+<img src="https://img.shields.io/badge/NVIDIA-GPU%20Systems-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
 <img src="https://img.shields.io/badge/CUDA-Accelerated%20Computing-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
-<img src="https://img.shields.io/badge/Linux-Systems-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
-<img src="https://img.shields.io/badge/Docker-Containers-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
-<img src="https://img.shields.io/badge/Kubernetes-Orchestration-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" />
+<img src="https://img.shields.io/badge/Kubernetes-AI%20Orchestration-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" />
 
-<br><br>
+
+<br>
+
 
 <img src="https://img.shields.io/badge/Distributed-Systems-blueviolet?style=flat-square" />
 <img src="https://img.shields.io/badge/GPU-Computing-green?style=flat-square" />
 <img src="https://img.shields.io/badge/AI-Operations-orange?style=flat-square" />
 <img src="https://img.shields.io/badge/Observability-Monitoring-red?style=flat-square" />
 <img src="https://img.shields.io/badge/Model-Inference-purple?style=flat-square" />
+
+
+<br>
+
+
+> **Models create intelligence. Infrastructure makes it usable.**
 
 </div>
 
@@ -35,7 +47,7 @@
 
 <div align="center">
 
-### **Models create intelligence. Infrastructure makes it usable.**
+### **The systems layer beneath modern AI.**
 
 </div>
 
@@ -69,106 +81,32 @@ Containers, Kubernetes, monitoring, reliability, troubleshooting, and production
 
 Rather than focusing on model theory alone, this repository explores the infrastructure required to **run, scale, connect, monitor, secure, optimize, and operate AI workloads in production**.
 
-The emphasis is on developing a systems-level understanding of:
+<div align="center">
 
-> **Compute → Memory → Storage → Networking → Clusters → Orchestration → Operations → Deployment**
+### `Compute → Memory → Storage → Networking → Clusters → Orchestration → Operations → Deployment`
 
----
-
-# 🏗️ AI Infrastructure Architecture
-
-Instead of treating infrastructure as a single stack, I view it as several interconnected engineering planes.
-
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│                         APPLICATION PLANE                            │
-│                                                                      │
-│       LLMs • RAG • Computer Vision • GenAI • AI Services            │
-└──────────────────────────────┬───────────────────────────────────────┘
-                               │
-                               ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│                          SERVING PLANE                               │
-│                                                                      │
-│      Model Serving • Triton • NIM • Batch • Real-Time Inference     │
-└──────────────────────────────┬───────────────────────────────────────┘
-                               │
-                               ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│                        ORCHESTRATION PLANE                           │
-│                                                                      │
-│        Containers • Kubernetes • Scheduling • Autoscaling           │
-└──────────────────────────────┬───────────────────────────────────────┘
-                               │
-                               ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│                         COMPUTE PLANE                                │
-│                                                                      │
-│       CPU • GPU • CUDA • Tensor Cores • HBM • GPU Memory            │
-└──────────────────────────────┬───────────────────────────────────────┘
-                               │
-                ┌──────────────┼──────────────┐
-                │              │              │
-                ▼              ▼              ▼
-       ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-       │   STORAGE    │ │  NETWORKING  │ │ DISTRIBUTED  │
-       │              │ │              │ │   COMPUTE    │
-       │ NVMe         │ │ Ethernet     │ │ NCCL         │
-       │ Object       │ │ InfiniBand   │ │ Parallelism  │
-       │ Distributed  │ │ RDMA         │ │ Checkpoints  │
-       │ GDS          │ │ NVLink       │ │ Sync         │
-       └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
-              │                │                │
-              └────────────────┼────────────────┘
-                               ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│                        OPERATIONS PLANE                              │
-│                                                                      │
-│ Monitoring • Logging • Security • Reliability • Troubleshooting     │
-└──────────────────────────────────────────────────────────────────────┘
-```
-
-This architecture is the core mental model behind InfraNerve:
-
-**AI infrastructure is not one technology. It is a system of interdependent layers.**
+</div>
 
 ---
 
 # 🗺️ Learning Map
 
+<div align="center">
+
 ## **23 Modules • 172 Topics • One Infrastructure Journey**
 
-|  #  | Module                             | Core Question                                              | Status |
-| :-: | ---------------------------------- | ---------------------------------------------------------- | :----: |
-|  01 | 🏗️ AI Infrastructure Fundamentals | What makes AI infrastructure different?                    |    ⬜   |
-|  02 | 🏭 AI Factories                    | How is AI produced at data-center scale?                   |    ⬜   |
-|  03 | 🖥️ Computer Architecture          | What happens beneath AI software?                          |    ⬜   |
-|  04 | ⚡ CPU vs GPU                       | Why did GPUs become the engine of AI?                      |    ⬜   |
-|  05 | 🟢 NVIDIA GPU Architecture         | How are NVIDIA accelerators designed?                      |    ⬜   |
-|  06 | 🧩 CUDA Ecosystem                  | How does software access GPU compute?                      |    ⬜   |
-|  07 | 💾 Memory Systems                  | How does data reach compute efficiently?                   |    ⬜   |
-|  08 | 🗄️ Storage for AI                 | How do we feed massive datasets to AI systems?             |    ⬜   |
-|  09 | 🌐 AI Networking                   | How do distributed AI systems communicate?                 |    ⬜   |
-|  10 | 🔗 NVIDIA Networking               | How are GPU clusters interconnected?                       |    ⬜   |
-|  11 | 🧮 Distributed AI Training         | How does training scale beyond one GPU?                    |    ⬜   |
-|  12 | 🖥️ AI Servers                     | What does an AI compute node look like?                    |    ⬜   |
-|  13 | 🏢 AI Clusters                     | How do servers become large AI systems?                    |    ⬜   |
-|  14 | 📦 Containers & Virtualization     | How are AI workloads packaged and scheduled?               |    ⬜   |
-|  15 | 🧰 AI Software Stack               | What software turns hardware into an AI platform?          |    ⬜   |
-|  16 | 📡 AI Operations                   | How do we operate AI infrastructure?                       |    ⬜   |
-|  17 | 📈 AI Performance                  | Where does AI infrastructure lose performance?             |    ⬜   |
-|  18 | 🔐 AI Security                     | How do we secure shared AI infrastructure?                 |    ⬜   |
-|  19 | 🏭 AI Data Centers                 | How is AI infrastructure deployed at scale?                |    ⬜   |
-|  20 | ☁️ AI Cloud Infrastructure         | How does AI infrastructure extend into cloud environments? |    ⬜   |
-|  21 | 🟢 NVIDIA AI Enterprise            | What software operates enterprise NVIDIA AI?               |    ⬜   |
-|  22 | 🚀 AI Deployment                   | How do trained models become production services?          |    ⬜   |
-|  23 | 🛠️ Troubleshooting & Operations   | How do we diagnose infrastructure when it fails?           |    ⬜   |
+`FOUNDATIONS → HARDWARE → ACCELERATION → DATA → NETWORK → SCALE → OPERATE`
 
-> **Legend:** ⬜ Planned · 🟡 Learning · 🧪 Lab in Progress · ✅ Completed
+</div>
+
+> **Expand a module to explore its concepts, systems views, and infrastructure questions.**
 
 ---
 
-# 01 — 🏗️ AI Infrastructure Fundamentals
+<details>
+<summary><h2>01 — 🏗️ AI Infrastructure Fundamentals</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -185,23 +123,30 @@ This architecture is the core mental model behind InfraNerve:
 
 ```text
                  AI INFRASTRUCTURE
-                        │
+                       │
         ┌───────────────┼───────────────┐
         │               │               │
         ▼               ▼               ▼
      COMPUTE          STORAGE        NETWORKING
         │               │               │
         └───────────────┼───────────────┘
-                        ▼
+                       ▼
                   SOFTWARE STACK
-                        │
-                        ▼
+                       │
+                       ▼
                     OPERATIONS
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 02 — 🏭 AI Factories
+<details>
+<summary><h2>02 — 🏭 AI Factories</h2></summary>
+
+<br>
 
 AI factories treat infrastructure as a system for continuously transforming data into intelligence.
 
@@ -233,9 +178,16 @@ MODELS & INTELLIGENCE
 AI SERVICES
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 03 — 🖥️ Computer Architecture
+<details>
+<summary><h2>03 — 🖥️ Computer Architecture</h2></summary>
+
+<br>
 
 To understand GPU infrastructure, I first need to understand the machine itself.
 
@@ -253,9 +205,16 @@ To understand GPU infrastructure, I first need to understand the machine itself.
 25. Streaming Multiprocessors
 26. GPU Memory
 
+<br>
+
+</details>
+
 ---
 
-# 04 — ⚡ CPU vs GPU
+<details>
+<summary><h2>04 — ⚡ CPU vs GPU</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -289,9 +248,16 @@ Matrix Operations
 AI Workloads
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 05 — 🟢 NVIDIA GPU Architecture
+<details>
+<summary><h2>05 — 🟢 NVIDIA GPU Architecture</h2></summary>
+
+<br>
 
 This module moves from generic GPU concepts into NVIDIA accelerator architecture.
 
@@ -309,9 +275,16 @@ This module moves from generic GPU concepts into NVIDIA accelerator architecture
 
 **Compute → Memory → Interconnect → Tensor Processing → AI Performance**
 
+<br>
+
+</details>
+
 ---
 
-# 06 — 🧩 CUDA Ecosystem
+<details>
+<summary><h2>06 — 🧩 CUDA Ecosystem</h2></summary>
+
+<br>
 
 CUDA is the software bridge between applications and NVIDIA GPU compute.
 
@@ -333,22 +306,29 @@ CUDA is the software bridge between applications and NVIDIA GPU compute.
 PyTorch / TensorFlow / AI Application
                  │
                  ▼
-        CUDA Libraries
-   cuDNN • cuBLAS • NCCL • TensorRT
+         CUDA Libraries
+    cuDNN • cuBLAS • NCCL • TensorRT
                  │
                  ▼
-           CUDA Runtime
+            CUDA Runtime
                  │
                  ▼
-           CUDA Driver
+            CUDA Driver
                  │
                  ▼
-            NVIDIA GPU
+             NVIDIA GPU
 ```
+
+<br>
+
+</details>
 
 ---
 
-# 07 — 💾 Memory Systems
+<details>
+<summary><h2>07 — 💾 Memory Systems</h2></summary>
+
+<br>
 
 Compute performance is limited if data cannot reach compute efficiently.
 
@@ -368,9 +348,16 @@ Compute performance is limited if data cannot reach compute efficiently.
 
 **Capacity • Bandwidth • Latency • Locality • Utilization**
 
+<br>
+
+</details>
+
 ---
 
-# 08 — 🗄️ Storage for AI
+<details>
+<summary><h2>08 — 🗄️ Storage for AI</h2></summary>
+
+<br>
 
 AI systems can consume massive datasets and checkpoints.
 
@@ -406,9 +393,16 @@ GPU MEMORY
 COMPUTE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 09 — 🌐 AI Networking
+<details>
+<summary><h2>09 — 🌐 AI Networking</h2></summary>
+
+<br>
 
 Distributed AI turns networking into part of the compute system.
 
@@ -428,9 +422,16 @@ Distributed AI turns networking into part of the compute system.
 
 > What happens when GPUs can compute faster than the network can synchronize them?
 
+<br>
+
+</details>
+
 ---
 
-# 10 — 🔗 NVIDIA Networking
+<details>
+<summary><h2>10 — 🔗 NVIDIA Networking</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -465,9 +466,16 @@ InfiniBand / Ethernet Fabric
 Remote Compute Node
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 11 — 🧮 Distributed AI Training
+<details>
+<summary><h2>11 — 🧮 Distributed AI Training</h2></summary>
+
+<br>
 
 One GPU eventually becomes insufficient.
 
@@ -487,22 +495,29 @@ Then the problem becomes distributed systems engineering.
 
 ```text
         TRAINING WORKLOAD
-               │
-      ┌────────┼────────┐
-      ▼        ▼        ▼
-    GPU 0    GPU 1    GPU 2
-      │        │        │
-      └────────┼────────┘
-               ▼
+              │
+      ┌───────┼───────┐
+      ▼       ▼       ▼
+    GPU 0   GPU 1   GPU 2
+      │       │       │
+      └───────┼───────┘
+              ▼
          SYNCHRONIZATION
-               │
-               ▼
+              │
+              ▼
          UPDATED MODEL
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 12 — 🖥️ AI Servers
+<details>
+<summary><h2>12 — 🖥️ AI Servers</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -530,9 +545,16 @@ Rack
 Cluster
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 13 — 🏢 AI Clusters
+<details>
+<summary><h2>13 — 🏢 AI Clusters</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -562,9 +584,16 @@ AI FACTORY
 
 At this scale, AI becomes a **power, cooling, networking, reliability, and scheduling problem** as much as a software problem.
 
+<br>
+
+</details>
+
 ---
 
-# 14 — 📦 Containers & Virtualization
+<details>
+<summary><h2>14 — 📦 Containers & Virtualization</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -594,9 +623,16 @@ GPU SCHEDULING
 NVIDIA GPU
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 15 — 🧰 AI Software Stack
+<details>
+<summary><h2>15 — 🧰 AI Software Stack</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -627,9 +663,16 @@ Linux
 GPU HARDWARE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 16 — 📡 AI Operations
+<details>
+<summary><h2>16 — 📡 AI Operations</h2></summary>
+
+<br>
 
 Building infrastructure is only half the problem.
 
@@ -666,9 +709,16 @@ OPTIMIZE
    └──────────────► OBSERVE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 17 — 📈 AI Performance
+<details>
+<summary><h2>17 — 📈 AI Performance</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -685,22 +735,29 @@ OPTIMIZE
 
 ```text
               AI PERFORMANCE
-                     │
-       ┌─────────────┼─────────────┐
-       ▼             ▼             ▼
-    COMPUTE        MEMORY       NETWORK
-       │             │             │
-       └─────────────┼─────────────┘
-                     ▼
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+    COMPUTE       MEMORY       NETWORK
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
                 UTILIZATION
-                     │
-                     ▼
+                    │
+                    ▼
              COST / PERFORMANCE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 18 — 🔐 AI Security
+<details>
+<summary><h2>18 — 🔐 AI Security</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -730,9 +787,16 @@ Data
 Application
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 19 — 🏭 AI Data Centers
+<details>
+<summary><h2>19 — 🏭 AI Data Centers</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -745,9 +809,16 @@ Application
 
 This module explores how infrastructure architecture changes across different deployment environments and scales.
 
+<br>
+
+</details>
+
 ---
 
-# 20 — ☁️ AI Cloud Infrastructure
+<details>
+<summary><h2>20 — ☁️ AI Cloud Infrastructure</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -775,9 +846,16 @@ PUBLIC CLOUD
 AI-AS-A-SERVICE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 21 — 🟢 NVIDIA AI Enterprise
+<details>
+<summary><h2>21 — 🟢 NVIDIA AI Enterprise</h2></summary>
+
+<br>
 
 This module explores NVIDIA's enterprise software ecosystem for accelerated AI workloads.
 
@@ -807,9 +885,16 @@ NVIDIA AI ENTERPRISE
 ACCELERATED INFRASTRUCTURE
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 22 — 🚀 AI Deployment
+<details>
+<summary><h2>22 — 🚀 AI Deployment</h2></summary>
+
+<br>
 
 ### Learning Topics
 
@@ -847,9 +932,16 @@ OBSERVABILITY
 PRODUCTION AI
 ```
 
+<br>
+
+</details>
+
 ---
 
-# 23 — 🛠️ Troubleshooting & Operations
+<details>
+<summary><h2>23 — 🛠️ Troubleshooting & Operations</h2></summary>
+
+<br>
 
 The final module turns infrastructure knowledge into operational reasoning.
 
@@ -868,30 +960,30 @@ The final module turns infrastructure knowledge into operational reasoning.
 
 ```text
                     PROBLEM
-                       │
-                       ▼
+                      │
+                      ▼
                 OBSERVE SYMPTOMS
-                       │
-                       ▼
+                      │
+                      ▼
               IDENTIFY SYSTEM LAYER
-                       │
-        ┌──────────────┼──────────────┐
-        ▼              ▼              ▼
-      GPU            NETWORK        STORAGE
-        │              │              │
-        ├──── MEMORY ──┼──── OS ──────┤
-        │              │              │
-        └──────────────┼──────────────┘
-                       ▼
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+      GPU           NETWORK       STORAGE
+        │             │             │
+        ├─── MEMORY ──┼──── OS ─────┤
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
                  ISOLATE CAUSE
-                       │
-                       ▼
+                      │
+                      ▼
                     RESOLVE
-                       │
-                       ▼
+                      │
+                      ▼
                  VERIFY HEALTH
-                       │
-                       ▼
+                      │
+                      ▼
                    DOCUMENT
 ```
 
@@ -903,61 +995,74 @@ to:
 
 > *"Which layer is failing, what evidence supports that conclusion, and how do I isolate the root cause?"*
 
+<br>
+
+</details>
+
 ---
 
-# 🧪 How I Study Each Topic
+# 🏗️ AI Infrastructure Architecture
 
-InfraNerve is not intended to become a collection of copied documentation.
-
-For every major concept, I aim to work through six stages:
+Instead of treating infrastructure as a single stack, I view it as several interconnected engineering planes.
 
 ```text
-01 ── UNDERSTAND
-      What is it?
-
-02 ── REASON
-      Why does it exist?
-
-03 ── ARCHITECT
-      Where does it sit in the system?
-
-04 ── EXPERIMENT
-      Can I test it hands-on?
-
-05 ── OPERATE
-      How does it behave in production?
-
-06 ── DOCUMENT
-      Can I explain it clearly?
+┌──────────────────────────────────────────────────────────────────────┐
+│                         APPLICATION PLANE                            │
+│                                                                      │
+│       LLMs • RAG • Computer Vision • GenAI • AI Services            │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                          SERVING PLANE                               │
+│                                                                      │
+│      Model Serving • Triton • NIM • Batch • Real-Time Inference     │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                        ORCHESTRATION PLANE                           │
+│                                                                      │
+│        Containers • Kubernetes • Scheduling • Autoscaling           │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                         COMPUTE PLANE                                │
+│                                                                      │
+│       CPU • GPU • CUDA • Tensor Cores • HBM • GPU Memory            │
+└──────────────────────────────┬───────────────────────────────────────┘
+                               │
+                 ┌─────────────┼─────────────┐
+                 │             │             │
+                 ▼             ▼             ▼
+        ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+        │   STORAGE    │ │  NETWORKING  │ │ DISTRIBUTED  │
+        │              │ │              │ │   COMPUTE    │
+        │ NVMe         │ │ Ethernet     │ │ NCCL         │
+        │ Object       │ │ InfiniBand   │ │ Parallelism  │
+        │ Distributed  │ │ RDMA         │ │ Checkpoints  │
+        │ GDS          │ │ NVLink       │ │ Sync         │
+        └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
+               │                │                │
+               └────────────────┼────────────────┘
+                                ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                        OPERATIONS PLANE                              │
+│                                                                      │
+│ Monitoring • Logging • Security • Reliability • Troubleshooting     │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
-Each topic may include:
-
-* 📘 Concept notes
-* 🏗️ Architecture diagrams
-* 💻 Commands and configurations
-* 🧪 Hands-on experiments
-* 📊 Performance observations
-* 🛠️ Troubleshooting exercises
-* 🔍 Production considerations
-* 📚 References
-
----
-
-# 🧭 Skills This Repository Is Intended to Develop
+This architecture is the core mental model behind InfraNerve:
 
 <div align="center">
 
-| Infrastructure       | Accelerated Computing | Operations            |
-| -------------------- | --------------------- | --------------------- |
-| Linux Systems        | NVIDIA GPUs           | Monitoring            |
-| Networking           | CUDA                  | Logging               |
-| Storage              | Tensor Cores          | Alerting              |
-| Kubernetes           | GPU Memory            | Troubleshooting       |
-| Containers           | NCCL                  | Performance Analysis  |
-| Distributed Systems  | NVLink / NVSwitch     | Reliability           |
-| AI Clusters          | RDMA / GPUDirect      | Capacity Awareness    |
-| Cloud Infrastructure | TensorRT / Triton     | Production Operations |
+### **AI infrastructure is not one technology.**
+
+### **It is a system of interdependent layers.**
+
+`APPLICATION ↕ SERVING ↕ ORCHESTRATION ↕ COMPUTE ↔ DATA ↔ NETWORK ↕ OPERATIONS`
 
 </div>
 
@@ -999,46 +1104,31 @@ Those questions turn **AI knowledge into AI infrastructure engineering**.
 
 ---
 
-# 🌐 Portfolio Context
-
-InfraNerve represents the infrastructure and operations layer of my broader AI engineering studies.
-
-```text
-                    AI ENGINEERING
-                          │
-        ┌─────────────────┴─────────────────┐
-        │                                   │
-        ▼                                   ▼
-   MODEL LAYER                      SYSTEMS LAYER
-        │                                   │
-Machine Learning                     Compute
-Deep Learning                        GPU / CUDA
-Computer Vision                      Storage
-LLMs                                 Networking
-Generative AI                        Kubernetes
-        │                            Operations
-        │                                   │
-        └─────────────────┬─────────────────┘
-                          ▼
-                 PRODUCTION AI SYSTEMS
-                          │
-                          ▼
-                AI PLATFORM ENGINEERING
-```
-
-The goal is not to move away from AI.
-
-The goal is to understand **everything required to make AI work at scale**.
-
----
-
 <div align="center">
 
 # ⚡ InfraNerve
 
-### **Understand the model. Understand the machine. Understand the system.**
+### **The model is only the beginning.**
 
-*Learning AI Infrastructure & Operations from GPU architecture to production-scale AI platforms.*
+```text
+SILICON
+   ↓
+COMPUTE
+   ↓
+MEMORY
+   ↓
+NETWORK
+   ↓
+CLUSTER
+   ↓
+PLATFORM
+   ↓
+OPERATIONS
+   ↓
+PRODUCTION AI
+```
+
+### `UNDERSTAND THE MACHINE → CONNECT THE SYSTEM → OPERATE THE INFRASTRUCTURE`
 
 <br>
 
@@ -1048,6 +1138,8 @@ The goal is to understand **everything required to make AI work at scale**.
 
 <br><br>
 
-### **Compute → Connect → Accelerate → Operate → Scale**
+> **Compute → Connect → Accelerate → Operate → Scale**
+
+**Learning AI infrastructure from the hardware beneath the workload to the systems that keep it running.**
 
 </div>
